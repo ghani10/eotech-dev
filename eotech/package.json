@@ -48,6 +48,7 @@
     "@poppinss/ts-exec": "^1.4.4",
     "@types/luxon": "^3.7.1",
     "@types/node": "~24.11.0",
+    "@types/uuid": "^10.0.0",
     "@vitejs/plugin-vue": "^6.0.4",
     "eslint": "^10.0.2",
     "hot-hook": "^1.0.0",
@@ -74,7 +75,9 @@
     "better-sqlite3": "^12.6.2",
     "edge.js": "^6.5.0",
     "luxon": "^3.7.2",
+    "mysql2": "^3.19.1",
     "reflect-metadata": "^0.2.2",
+    "uuid": "^13.0.0",
     "vue": "^3.5.29",
     "vue-sonner": "^2.0.9"
   },

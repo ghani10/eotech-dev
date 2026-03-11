@@ -5,7 +5,7 @@ import { toast, Toaster } from 'vue-sonner'
 import type { Data } from '@generated/data'
 import { Link, Form } from '@adonisjs/inertia/vue'
 
-const page = usePage<Data.SharedProps>()
+const page = usePage<Data.SharedProps & { user?: { initials: string } }>()
 
 watch(
   () => page.url,
