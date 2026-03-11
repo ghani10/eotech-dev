@@ -7,6 +7,138 @@
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 import { DateTime } from 'luxon'
 
+export class EventMemberSchema extends BaseModel {
+  static $columns = ['eventId', 'eventMemberId', 'role', 'userId'] as const
+  $columns = EventMemberSchema.$columns
+  @column()
+  declare eventId: string
+  @column()
+  declare eventMemberId: string
+  @column()
+  declare role: string
+  @column()
+  declare userId: string
+}
+
+export class EventSchema extends BaseModel {
+  static $columns = ['banner', 'createdAt', 'description', 'eventId', 'location', 'organizerContact', 'registrationEndTime', 'registrationStartAt', 'slug', 'status', 'title', 'updatedAt', 'userId'] as const
+  $columns = EventSchema.$columns
+  @column()
+  declare banner: string | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column()
+  declare description: string | null
+  @column()
+  declare eventId: string
+  @column()
+  declare location: string | null
+  @column()
+  declare organizerContact: string | null
+  @column.dateTime()
+  declare registrationEndTime: DateTime | null
+  @column.dateTime()
+  declare registrationStartAt: DateTime | null
+  @column()
+  declare slug: string | null
+  @column()
+  declare status: string
+  @column()
+  declare title: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+  @column()
+  declare userId: string
+}
+
+export class OrderSchema extends BaseModel {
+  static $columns = ['buyerEmail', 'buyerName', 'buyerPhone', 'createdAt', 'eventId', 'orderId', 'paymentId', 'totalAmount', 'updatedAt'] as const
+  $columns = OrderSchema.$columns
+  @column()
+  declare buyerEmail: string
+  @column()
+  declare buyerName: string
+  @column()
+  declare buyerPhone: string | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column()
+  declare eventId: string
+  @column()
+  declare orderId: string
+  @column()
+  declare paymentId: string | null
+  @column()
+  declare totalAmount: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class PaymentSchema extends BaseModel {
+  static $columns = ['createdAt', 'paymentExpiredAt', 'paymentId', 'paymentMethod', 'paymentStatus', 'updatedAt'] as const
+  $columns = PaymentSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column.dateTime()
+  declare paymentExpiredAt: DateTime | null
+  @column()
+  declare paymentId: string
+  @column()
+  declare paymentMethod: string
+  @column()
+  declare paymentStatus: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class TicketTypeSchema extends BaseModel {
+  static $columns = ['createdAt', 'description', 'eventId', 'perOrderLimit', 'price', 'quota', 'salesEndDate', 'salesStartDate', 'ticketName', 'ticketTypeId', 'updatedAt'] as const
+  $columns = TicketTypeSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column()
+  declare description: string | null
+  @column()
+  declare eventId: string
+  @column()
+  declare perOrderLimit: number | null
+  @column()
+  declare price: number
+  @column()
+  declare quota: number
+  @column.dateTime()
+  declare salesEndDate: DateTime | null
+  @column.dateTime()
+  declare salesStartDate: DateTime | null
+  @column()
+  declare ticketName: string
+  @column()
+  declare ticketTypeId: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class TicketSchema extends BaseModel {
+  static $columns = ['checkinAt', 'createdAt', 'orderId', 'qrCode', 'statusTicket', 'ticketId', 'ticketTypeId', 'updatedAt'] as const
+  $columns = TicketSchema.$columns
+  @column.dateTime()
+  declare checkinAt: DateTime | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column()
+  declare orderId: string
+  @column()
+  declare qrCode: string | null
+  @column()
+  declare statusTicket: string
+  @column()
+  declare ticketId: string
+  @column()
+  declare ticketTypeId: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
 export class UserSchema extends BaseModel {
   static $columns = ['createdAt', 'email', 'fullName', 'password', 'role', 'updatedAt', 'userId'] as const
   $columns = UserSchema.$columns
