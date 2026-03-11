@@ -14,8 +14,8 @@ export default class extends BaseSchema {
       table.datetime('registration_end_time')
       table.string('banner', 50)
       table
-        .enum('status', ['pending', 'published', 'archived'])
-        .defaultTo('pending')
+        .enum('status', ['draft', 'published', 'archived','ended'])
+        .defaultTo('draft')
         .notNullable()
       table.string('slug', 50).unique()
       table.timestamp('created_at', { useTz: false })

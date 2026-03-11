@@ -8,8 +8,8 @@ export default class extends BaseSchema {
       table.uuid('ticket_id').primary().notNullable()
       table.text('qr_code').nullable()
       table
-        .enum('status_ticket', ['flashSale', 'reguler', 'vip'])
-        .defaultTo('reguler')
+        .enum('status_ticket', ['active','used','invalid'])
+        .defaultTo('active')
         .notNullable()
       table.timestamp('checkin_at').nullable()
       table.timestamp('created_at').notNullable()
