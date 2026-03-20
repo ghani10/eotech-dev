@@ -107,9 +107,9 @@ services:
     environment:
       - DB_HOST=db
       - DB_PORT=3306
-      - DB_USER=root
-      - DB_PASSWORD=1122
-      - DB_DATABASE=eotech
+      - DB_USER=your-username-here
+      - DB_PASSWORD=your-password-here
+      - DB_DATABASE=your-database-name-here
       - APP_KEY=${APP_KEY} # Make sure to set APP_KEY in your .env file
     depends_on:
       - db
@@ -117,9 +117,9 @@ services:
   db:
     image: mysql:latest
     environment:
-      MYSQL_ROOT_USER: root
-      MYSQL_ROOT_PASSWORD: 1122
-      MYSQL_DATABASE: eotech
+      MYSQL_ROOT_USER: your-username-here
+      MYSQL_ROOT_PASSWORD: your-passowrd-here   
+      MYSQL_DATABASE: your-database-name-here
     ports:
       - "3308:3306"
     volumes:
@@ -128,9 +128,9 @@ services:
   phpmyadmin:
     image: phpmyadmin:latest
     environment:
-      PMA_HOST: db
-      PMA_USER: root
-      PMA_PASSWORD: 1122
+      PMA_HOST: your-hostname-here
+      PMA_USER: your-username-here
+      PMA_PASSWORD: your-password-here
     ports:
       - "8090:80"
     depends_on:
